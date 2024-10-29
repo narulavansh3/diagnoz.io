@@ -1,0 +1,15 @@
+// Previous schema content remains
+model Radiologist {
+  id            String    @id @default(uuid())
+  userId        String    @unique
+  user          User      @relation(fields: [userId], references: [id])
+  name          String
+  qualification String
+  specialization String
+  licenseNumber String    @unique
+  experience    Int
+  phone         String
+  isAvailable   Boolean   @default(false)
+  lastActive    DateTime  @default(now())
+  specialties   String[]  // Array of specialties they can handle
+}
